@@ -10,45 +10,45 @@
         <div class="form-group">
           <input
             type="text"
-            name="make"
-            id="make"
+            name="jobTitle"
+            id="jobTitle"
             class="form-control"
-            placeholder="Make"
+            placeholder="Job Title"
             aria-describedby="helpId"
-            v-model="state.newJob.make"
+            v-model="state.newJob.jobTitle"
           />
         </div>
         <div class="form-group">
           <input
             type="text"
-            name="model"
-            id="model"
+            name="company"
+            id="company"
             class="form-control"
-            placeholder="Model"
+            placeholder="Company"
             aria-describedby="helpId"
-            v-model="state.newJob.model"
+            v-model="state.newJob.company"
           />
         </div>
         <div class="form-group">
           <input
             type="number"
-            name="year"
-            id="year"
+            name="hours"
+            id="hours"
             class="form-control"
-            placeholder="Year"
+            placeholder="hours"
             aria-describedby="helpId"
-            v-model="state.newJob.year"
+            v-model="state.newJob.hours"
           />
         </div>
         <div class="form-group">
           <input
             type="number"
-            name="price"
-            id="price"
+            name="rate"
+            id="rate"
             class="form-control"
-            placeholder="Price"
+            placeholder="rate"
             aria-describedby="helpId"
-            v-model="state.newJob.price"
+            v-model="state.newJob.rate"
           />
         </div>
         <div class="form-group">
@@ -60,17 +60,6 @@
             placeholder="Description"
             aria-describedby="helpId"
             v-model="state.newJob.description"
-          />
-        </div>
-        <div class="form-group">
-          <input
-            type="text"
-            name="imgUrl"
-            id="imgUrl"
-            class="form-control"
-            placeholder="ImgUrl"
-            aria-describedby="helpId"
-            v-model="state.newJob.imgUrl"
           />
         </div>
         <button class="btn btn-info" type="submit">Create</button>
@@ -91,7 +80,7 @@ import { useRouter } from 'vue-router'
 
 export default {
   name: 'JobsPage',
-  setup() {
+  setup () {
     const router = useRouter()
     const state = reactive({
       jobs: computed(() => AppState.jobs),
@@ -104,7 +93,7 @@ export default {
 
     return {
       state,
-      async createJob() {
+      async createJob () {
         const jobId = await jobsService.createJob(state.newJob)
         router.push({ name: 'JobDetails', params: { id: jobId } })
         state.newJob = {}

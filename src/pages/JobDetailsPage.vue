@@ -10,45 +10,45 @@
       <div class="form-group">
         <input
           type="text"
-          name="make"
-          id="make"
+          name="jobTitle"
+          id="jobTitle"
           class="form-control"
-          placeholder="Make"
+          placeholder="Job Title"
           aria-describedby="helpId"
-          v-model="state.job.make"
+          v-model="state.job.jobTitle"
         />
       </div>
       <div class="form-group">
         <input
           type="text"
-          name="model"
-          id="model"
+          name="company"
+          id="company"
           class="form-control"
-          placeholder="Model"
+          placeholder="Company"
           aria-describedby="helpId"
-          v-model="state.job.model"
+          v-model="state.job.company"
         />
       </div>
       <div class="form-group">
         <input
           type="number"
-          name="year"
-          id="year"
+          name="hours"
+          id="hours"
           class="form-control"
-          placeholder="Year"
+          placeholder="Hours"
           aria-describedby="helpId"
-          v-model="state.job.year"
+          v-model="state.job.hours"
         />
       </div>
       <div class="form-group">
         <input
           type="number"
-          name="price"
-          id="price"
+          name="rate"
+          id="rate"
           class="form-control"
-          placeholder="Price"
+          placeholder="Rate"
           aria-describedby="helpId"
-          v-model="state.job.price"
+          v-model="state.job.rate"
         />
       </div>
       <div class="form-group">
@@ -60,17 +60,6 @@
           placeholder="Description"
           aria-describedby="helpId"
           v-model="state.job.description"
-        />
-      </div>
-      <div class="form-group">
-        <input
-          type="text"
-          name="imgUrl"
-          id="imgUrl"
-          class="form-control"
-          placeholder="ImgUrl"
-          aria-describedby="helpId"
-          v-model="state.job.imgUrl"
         />
       </div>
       <button class="btn btn-info" type="submit">Create</button>
@@ -86,7 +75,7 @@ import { AppState } from '../Appstate'
 
 export default {
   name: 'JobDetails',
-  setup() {
+  setup () {
     const route = useRoute()
     const router = useRouter()
     const state = reactive({
@@ -107,7 +96,7 @@ export default {
     return {
       route,
       state,
-      async deleteJob() {
+      async deleteJob () {
         await jobsService.deleteJob(state.job._id)
         router.push({ name: 'Jobs' })
       }

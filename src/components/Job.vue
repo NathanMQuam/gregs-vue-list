@@ -2,11 +2,10 @@
   <div class="col-4">
     <!-- NOTE the route contains both the name and an object to provide needed params -->
     <router-link :to="{name: 'JobDetails', params: {id: job._id}}" >
-      <div class="jobd job">
-        <img class="jobd-img-top" :src="job.imgUrl" alt="job">
-        <div class="jobd-body">
-          <h4 class="jobd-title">{{job.make}} | {{job.model}}</h4>
-          <p class="jobd-text">{{job.year}} | {{job.price}}</p>
+      <div class="card job">
+        <div class="card-body">
+          <h4 class="card-title">{{job.jobTitle}} | {{job.company}}</h4>
+          <p class="card-text">{{job.hours}} | {{job.rate}}</p>
         </div>
       </div>
     </router-link>
@@ -19,7 +18,7 @@ export default {
   props: {
     job: Object
   },
-  setup() {
+  setup () {
     return {}
   },
   components: {}
