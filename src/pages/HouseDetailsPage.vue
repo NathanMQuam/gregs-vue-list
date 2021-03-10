@@ -1,6 +1,6 @@
 <template>
   <div class="house-details">
-    <h1>WElcome to the details page</h1>
+    <h1>Welcome to the details page</h1>
     {{ state.house }}
     <button type="button" class="btn btn-outline-danger" @click="deleteHouse">
       Delete House
@@ -10,24 +10,35 @@
       <div class="form-group">
         <input
           type="text"
-          name="make"
-          id="make"
+          name="bedrooms"
+          id="bedrooms"
           class="form-control"
-          placeholder="Make"
+          placeholder="bedrooms"
           aria-describedby="helpId"
-          v-model="state.house.make"
+          v-model="state.house.bedrooms"
         />
       </div>
       <div class="form-group">
         <input
           type="text"
-          name="model"
-          id="model"
+          name="bathrooms"
+          id="bathrooms"
           class="form-control"
-          placeholder="Model"
+          placeholder="bathrooms"
           aria-describedby="helpId"
-          v-model="state.house.model"
-        />
+          v-model="state.house.bathrooms"
+          />
+        </div>
+        <div class="form-group">
+          <input
+            type="text"
+            name="levels"
+            id="levels"
+            class="form-control"
+            placeholder="levels"
+            aria-describedby="helpId"
+            v-model="state.house.levels"
+          />
       </div>
       <div class="form-group">
         <input
@@ -86,7 +97,7 @@ import { AppState } from '../Appstate'
 
 export default {
   name: 'HouseDetails',
-  setup() {
+  setup () {
     const route = useRoute()
     const router = useRouter()
     const state = reactive({
@@ -107,7 +118,7 @@ export default {
     return {
       route,
       state,
-      async deleteHouse() {
+      async deleteHouse () {
         await housesService.deleteHouse(state.house._id)
         router.push({ name: 'Houses' })
       }

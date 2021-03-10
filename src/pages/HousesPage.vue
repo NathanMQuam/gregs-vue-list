@@ -10,23 +10,34 @@
         <div class="form-group">
           <input
             type="text"
-            name="make"
-            id="make"
+            name="bedrooms"
+            id="bedrooms"
             class="form-control"
-            placeholder="Make"
+            placeholder="bedrooms"
             aria-describedby="helpId"
-            v-model="state.newHouse.make"
+            v-model="state.newHouse.bedrooms"
           />
         </div>
         <div class="form-group">
           <input
             type="text"
-            name="model"
-            id="model"
+            name="bathrooms"
+            id="bathrooms"
             class="form-control"
-            placeholder="Model"
+            placeholder="bathrooms"
             aria-describedby="helpId"
-            v-model="state.newHouse.model"
+            v-model="state.newHouse.bathrooms"
+          />
+        </div>
+        <div class="form-group">
+          <input
+            type="text"
+            name="levels"
+            id="levels"
+            class="form-control"
+            placeholder="levels"
+            aria-describedby="helpId"
+            v-model="state.newHouse.levels"
           />
         </div>
         <div class="form-group">
@@ -91,7 +102,7 @@ import { useRouter } from 'vue-router'
 
 export default {
   name: 'HousesPage',
-  setup() {
+  setup () {
     const router = useRouter()
     const state = reactive({
       houses: computed(() => AppState.houses),
@@ -104,7 +115,7 @@ export default {
 
     return {
       state,
-      async createHouse() {
+      async createHouse () {
         const houseId = await housesService.createHouse(state.newHouse)
         router.push({ name: 'HouseDetails', params: { id: houseId } })
         state.newHouse = {}

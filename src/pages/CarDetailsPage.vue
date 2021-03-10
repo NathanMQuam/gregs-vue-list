@@ -1,6 +1,6 @@
 <template>
   <div class="car-details">
-    <h1>WElcome to the details page</h1>
+    <h1>Welcome to the details page</h1>
     {{ state.car }}
     <button type="button" class="btn btn-outline-danger" @click="deleteCar">
       Delete Car
@@ -86,7 +86,7 @@ import { AppState } from '../Appstate'
 
 export default {
   name: 'CarDetails',
-  setup() {
+  setup () {
     const route = useRoute()
     const router = useRouter()
     const state = reactive({
@@ -107,7 +107,7 @@ export default {
     return {
       route,
       state,
-      async deleteCar() {
+      async deleteCar () {
         await carsService.deleteCar(state.car._id)
         router.push({ name: 'Cars' })
       }
